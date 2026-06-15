@@ -1,0 +1,22 @@
+.header {
+  max-width: 720px;
+  margin-bottom: 34px;
+
+  span {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: #f7c948;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    color: #f5f8fc;
+    letter-spacing: 0;
+  }
+
+  p {
+    margin-top: 16px;
+    color: #b8c7da;
+  }
+}
