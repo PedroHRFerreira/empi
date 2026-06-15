@@ -1,18 +1,13 @@
-import "@/assets/globals.scss";
+import { inter, poppins, tasaExplorer } from "@/assets/localFonts";
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <div>
-      <header>
-        <h1>Header do Site</h1>
-      </header>
-      <main>{children}</main>
-      <footer>
-        <p>Footer do Site</p>
-      </footer>
+    <div className={`${inter.variable} ${poppins.variable} ${tasaExplorer.variable}`}>
+      {children}
     </div>
   );
 }

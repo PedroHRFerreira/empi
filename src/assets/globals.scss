@@ -1,3 +1,74 @@
+@use 'sass:map';
+
+$font-weights: (
+  regular: 500,
+  medium: 500,
+  semi-bold: 600,
+  extra-bold: 600
+);
+
+$title-styles: (
+  h1: (
+    font-size: 56px,
+    line-height: 120%
+  ),
+  h2: (
+    font-size: 44px,
+    line-height: 140%
+  ),
+  h3: (
+    font-size: 48px,
+    line-height: 140%
+  ),
+  h4: (
+    font-size: 40px,
+    line-height: 140%
+  ),
+  h5: (
+    font-size: 36px,
+    line-height: 140%
+  ),
+  h6: (
+    font-size: 32px,
+    line-height: 140%
+  ),
+  h7: (
+    font-size: 24px,
+    line-height: 140%
+  )
+);
+
+$text-styles: (
+  p1: (
+    font-size: 24px,
+    line-height: 140%
+  ),
+  p2: (
+    font-size: 20px,
+    line-height: 140%
+  ),
+  p3: (
+    font-size: 18px,
+    line-height: 160%
+  ),
+  p4: (
+    font-size: 16px,
+    line-height: 160%
+  ),
+  p5: (
+    font-size: 14px,
+    line-height: 160%
+  ),
+  p6: (
+    font-size: 12px,
+    line-height: 160%
+  ),
+  p7: (
+    font-size: 11px,
+    line-height: 160%
+  )
+);
+
 * {
   margin: 0;
   padding: 0;
@@ -11,33 +82,35 @@ html {
 
 body,
 input,
-textarea {
+textarea,
+select,
+button {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-optical-sizing: auto;
   line-height: 1.5;
   color: #fff;
   background: radial-gradient(
-      circle at 80% 20%,
-      #1a0505 0%,
-      #0a0202 50%,
+      circle at 86% 8%,
+      rgba(18, 101, 199, 0.28) 0%,
+      rgba(10, 30, 62, 0.18) 36%,
       transparent 100%
     ),
     radial-gradient(
-      circle at 20% 80%,
-      #150404 0%,
-      #0a0202 50%,
+      circle at 18% 78%,
+      rgba(247, 201, 72, 0.1) 0%,
+      rgba(10, 30, 62, 0.18) 42%,
       transparent 100%
     ),
-    radial-gradient(ellipse at 50% 50%, #0f0303 0%, #000000 100%);
-  background-color: #000000;
+    linear-gradient(135deg, #02060d 0%, #071426 48%, #02060d 100%);
+  background-color: #02060d;
   background-attachment: fixed;
 }
 
 p,
 a {
   font-family: var(--font-inter), sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   color: #fff;
 }
 
@@ -47,8 +120,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-poppins), sans-serif;
-  font-weight: 800;
+  font-family: var(--font-display), var(--font-poppins), sans-serif;
+  font-weight: 600;
 }
 
 ul {
@@ -58,6 +131,125 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.title {
+  @each $style, $properties in $title-styles {
+    &-#{$style} {
+      font-feature-settings:
+        'clig' off,
+        'liga' off;
+      font-style: normal;
+      color: currentColor;
+      margin: 0;
+
+      &-regular {
+        font-weight: map.get($font-weights, regular);
+      }
+
+      &-medium {
+        font-weight: map.get($font-weights, medium);
+      }
+
+      &-semi-bold {
+        font-weight: map.get($font-weights, semi-bold);
+      }
+
+      &-extra-bold {
+        font-weight: map.get($font-weights, extra-bold);
+      }
+
+      @each $property, $value in $properties {
+        @if $property != font-weight {
+          & {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+.text {
+  @each $style, $properties in $text-styles {
+    &-#{$style} {
+      font-feature-settings:
+        'clig' off,
+        'liga' off;
+      font-style: normal;
+      color: currentColor;
+      margin: 0;
+
+      &-regular {
+        font-weight: map.get($font-weights, regular);
+      }
+
+      &-medium {
+        font-weight: map.get($font-weights, medium);
+      }
+
+      &-semi-bold {
+        font-weight: map.get($font-weights, semi-bold);
+      }
+
+      &-extra-bold {
+        font-weight: map.get($font-weights, extra-bold);
+      }
+
+      @each $property, $value in $properties {
+        @if $property != font-weight {
+          & {
+            #{$property}: $value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .title-h1 {
+    font-size: 42px;
+    line-height: 120%;
+  }
+
+  .title-h2 {
+    font-size: 36px;
+  }
+
+  .title-h3 {
+    font-size: 36px;
+  }
+
+  .text-p1 {
+    font-size: 20px;
+  }
+
+  .text-p2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-h1 {
+    font-size: 34px;
+  }
+
+  .title-h2 {
+    font-size: 30px;
+  }
+
+  .title-h3,
+  .title-h4,
+  .title-h5,
+  .title-h6 {
+    font-size: 28px;
+  }
+
+  .text-p2,
+  .text-p3 {
+    font-size: 16px;
+  }
 }
 
 .loading .anim-loading {
