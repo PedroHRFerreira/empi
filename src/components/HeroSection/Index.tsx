@@ -43,8 +43,8 @@ export default function HeroSection() {
 
       <div className={styles.media} aria-label="Imagem institucional EMPI Autocenter">
         <Image
-          src="/images/image-2.jpeg"
-          alt="EMPI Autocenter com lista de serviços automotivos"
+          src="/images/image-5.jpeg"
+          alt="Multímetro em diagnóstico elétrico automotivo"
           fill
           priority
           sizes="(max-width: 900px) 100vw, 44vw"
