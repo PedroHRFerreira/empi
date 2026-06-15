@@ -118,6 +118,63 @@
   line-height: 1;
 }
 
+.metricValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  height: 1em;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+
+.metricAccessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.digitViewport {
+  display: inline-block;
+  width: 0.58em;
+  height: 1em;
+  overflow: hidden;
+}
+
+.digitTrack {
+  display: grid;
+  justify-items: center;
+  transform: translate3d(0, 0, 0);
+  transition: transform 3000ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--digit-delay, 0ms);
+}
+
+.digitTrack span {
+  height: 1em;
+  line-height: 1;
+}
+
+.metricValueVisible .digitTrack {
+  transform: translate3d(0, -10em, 0);
+}
+
+.metricSymbol {
+  display: inline-block;
+  margin-left: 0.02em;
+  line-height: 1;
+  opacity: 0;
+  transform: translate3d(0, 0.35em, 0);
+  transition: opacity 360ms ease, transform 360ms ease;
+  transition-delay: 2600ms;
+}
+
+.metricValueVisible .metricSymbol {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .metrics dd {
   margin-top: 8px;
   color: #91a7c0;
@@ -187,5 +244,12 @@
 
   .media {
     aspect-ratio: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digitTrack,
+  .metricSymbol {
+    transition: none;
   }
 }
