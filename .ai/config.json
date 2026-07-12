@@ -51,7 +51,9 @@
           "medium": "pro",
           "high": "pro"
         },
-        "args": [],
+        "args": [
+          "--skip-trust"
+        ],
         "timeoutMs": 900000
       }
     }
