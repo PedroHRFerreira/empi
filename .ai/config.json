@@ -73,7 +73,14 @@
     "maxIterations": 3,
     "failOnSeverity": "high",
     "reviewContext": true,
-    "testCommand": "npm run build"
+    "testCommand": {
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "timeoutMs": 600000
+    }
   },
   "generatedTemplates": {
     "AGENTS.md": "b657d9a0eb69c2dc0ea54abb3fedff49192ead0703dd9fe0411cb14f77074776",
