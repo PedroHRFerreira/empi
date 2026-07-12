@@ -12,7 +12,7 @@
     "rods:index": "rods ingest . --scope general",
     "rods:index:review": "rods ingest . --scope review",
     "rods:stats": "rods stats",
-    "rods:flow": "rods flow run --mode codex+gemini --root ."
+    "rods:flow": "rods flow run --mode codex --root ."
   },
   "dependencies": {
     "next": "15.5.19",

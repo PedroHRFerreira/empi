@@ -43,7 +43,7 @@
       }
     },
     "gemini": {
-      "enabled": true,
+      "enabled": false,
       "execution": {
         "binary": "gemini",
         "models": {
@@ -51,9 +51,7 @@
           "medium": "pro",
           "high": "pro"
         },
-        "args": [
-          "--skip-trust"
-        ],
+        "args": [],
         "timeoutMs": 900000
       }
     }
@@ -71,16 +69,13 @@
     }
   },
   "workflow": {
-    "mode": "codex+gemini",
+    "mode": "codex",
     "maxIterations": 3,
     "failOnSeverity": "high",
     "reviewContext": true,
     "testCommand": {
       "command": "npm",
-      "args": [
-        "run",
-        "build"
-      ],
+      "args": ["run", "build"],
       "timeoutMs": 600000
     }
   },
